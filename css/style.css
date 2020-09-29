@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    background-color: #000000;
+}
+
+canvas#game-canvas {
+    display: block;
+    object-fit: contain;
+    flex-grow: 1;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: optimizeSpeed;
+}

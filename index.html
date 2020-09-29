@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pac-Man</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script type="application/javascript" src="js/game.js"></script>
+<script type="application/javascript" src="js/math.js"></script>
+<script type="application/javascript" src="js/pacman.js"></script>
+<script type="application/javascript" src="js/player.js"></script>
+<script type="application/javascript" src="js/ghost.js"></script>
+<script>
+    const GAME = new Game(224, 288);
+
+    const PACMAN = new PacMan();
+    const PLAYER = new Player(14 * MAP_TILE_SIZE, 26.5 * MAP_TILE_SIZE);
+
+    const BLINKY = new Ghost(14 * MAP_TILE_SIZE, 14.5 * MAP_TILE_SIZE, GhostTypes.BLINKY, new Vector2(25 * MAP_TILE_SIZE, 0));
+    const PINKY = new Ghost(14 * MAP_TILE_SIZE, 14.5 * MAP_TILE_SIZE, GhostTypes.PINKY, new Vector2(2 * MAP_TILE_SIZE, 0));
+    const INKY = new Ghost(12 * MAP_TILE_SIZE, 14.5 * MAP_TILE_SIZE, GhostTypes.INKY, new Vector2(27 * MAP_TILE_SIZE, 35 * MAP_TILE_SIZE));
+    const CLYDE = new Ghost(16 * MAP_TILE_SIZE, 14.5 * MAP_TILE_SIZE, GhostTypes.CLYDE, new Vector2(0, 35 * MAP_TILE_SIZE));
+    const GHOSTS = [BLINKY, PINKY, INKY, CLYDE];
+
+    GAME.addObject(BLINKY);
+    GAME.addObject(PINKY);
+    GAME.addObject(INKY);
+    GAME.addObject(CLYDE);
+
+    GAME.addObject(PLAYER);
+    GAME.addObject(PACMAN);
+
+    function keyDownHandler(e) {
+        if(e.code === "KeyD" || e.code === "ArrowRight")
+            PLAYER.trySetDirection(Directions.RIGHT);
+        else if(e.code === "KeyA" || e.code === "ArrowLeft")
+            PLAYER.trySetDirection(Directions.LEFT);
+        else if(e.code === "KeyW" || e.code === "ArrowUp")
+            PLAYER.trySetDirection(Directions.UP);
+        else if(e.code === "KeyS" || e.code === "ArrowDown")
+            PLAYER.trySetDirection(Directions.DOWN);
+    }
+
+    document.body.addEventListener("keydown", keyDownHandler, false);
+    document.body.append(GAME.canvas);
+
+    GAME.run();
+</script>
+</body>
+</html>
