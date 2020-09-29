@@ -32,14 +32,18 @@
     GAME.addObject(PACMAN);
 
     function keyDownHandler(e) {
-        if(e.code === "KeyD" || e.code === "ArrowRight")
+        if (e.code === "KeyD" || e.code === "ArrowRight")
             PLAYER.trySetDirection(Directions.RIGHT);
-        else if(e.code === "KeyA" || e.code === "ArrowLeft")
+        else if (e.code === "KeyA" || e.code === "ArrowLeft")
             PLAYER.trySetDirection(Directions.LEFT);
-        else if(e.code === "KeyW" || e.code === "ArrowUp")
+        else if (e.code === "KeyW" || e.code === "ArrowUp")
             PLAYER.trySetDirection(Directions.UP);
-        else if(e.code === "KeyS" || e.code === "ArrowDown")
+        else if (e.code === "KeyS" || e.code === "ArrowDown")
             PLAYER.trySetDirection(Directions.DOWN);
+        else if (e.code === "KeyP") {
+            for (let ghost of GHOSTS)
+                ghost.pathfinderShowDebug = !ghost.pathfinderShowDebug;
+        }
     }
 
     document.body.addEventListener("keydown", keyDownHandler, false);

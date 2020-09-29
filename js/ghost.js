@@ -55,6 +55,12 @@ class Ghost extends SpriteSheetObject {
     pathfinderTargetPosition = new Vector2();
 
     /**
+     *
+     * @type {boolean}
+     */
+    pathfinderShowDebug = false;
+
+    /**
      * The next tile, used by the pathfinding algorithm
      * @type {Vector2}
      */
@@ -100,7 +106,8 @@ class Ghost extends SpriteSheetObject {
 
     render(ctx, deltaTime) {
         super.render(ctx, deltaTime);
-        this.drawDebug(ctx);
+        if(this.pathfinderShowDebug)
+            this.drawDebug(ctx);
     }
 
     drawDebug(ctx) {
