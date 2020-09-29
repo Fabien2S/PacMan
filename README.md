@@ -1,2 +1,2 @@
 # PacMan
-A Pac-Man Recration
+A Pac-Man Recreation
