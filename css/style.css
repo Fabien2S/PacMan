@@ -3,10 +3,11 @@ body {
     background-color: #000000;
 }
 
-canvas#game-canvas {
+canvas {
     display: block;
     object-fit: contain;
     flex-grow: 1;
-    -ms-interpolation-mode: nearest-neighbor;
-    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
 }
