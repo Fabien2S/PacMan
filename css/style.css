@@ -10,7 +10,7 @@ canvas {
     left: 0; right: 0;
     padding: 0; margin: auto;
 
-    aspect-ratio = 224 / 288;
+    aspect-ratio: 224 / 288;
 
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
